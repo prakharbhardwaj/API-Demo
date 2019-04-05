@@ -30,7 +30,7 @@ class WebViewController: UIViewController, WKNavigationDelegate {
     }
     
     func loadVideo() {
-        guard let videoURL = URL(string: "https://www.tripvenza.com/dashboard/")
+        guard let videoURL = URL(string: "https://www.fb.com")
             else { return }
         practiceVideo.load( URLRequest(url: videoURL) )
         practiceVideo.navigationDelegate = self
