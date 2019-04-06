@@ -269,6 +269,35 @@ class ViewController: UIViewController {
         }
         task.resume()
     }
+    
+    func generatePracticeSession() {
+        let urlString = "https://demo.evueme.com/question/1/Practicequestionare"
+        let urlPath = URL(string: urlString)!
+        let urlRequest = URLRequest(url: urlPath)
+
+        let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            do {
+                if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? NSArray {                    DispatchQueue.main.async {
+                    for item in jsonResult {
+                        let obj = item as! NSDictionary
+                        practiceQuestion = (obj["ques_descrip"] as!
+                            String)
+                        //                            audioString = ( obj["ques_polly"]  as! String)
+                        initalPracTime = (obj["prep_time"] as! String).numberOfSeconds()
+                        mainPracTime = (obj["resp_time"] as! String).numberOfSeconds()
+                        responseTime = (obj["resp_time"] as! String)
+                        retakeCount = (obj["retake"] as! Int)
+                        practiceQuesId = (obj["quesid"] as! Int)
+                    }
+                    }
+                }
+            }
+            catch let err as NSError {
+                print(err.debugDescription)
+            }
+        }
+        task.resume()
+    }
 }
 extension String {
     func numberOfSeconds() -> Int {
