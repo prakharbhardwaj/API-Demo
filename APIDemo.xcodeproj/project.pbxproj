@@ -18,6 +18,7 @@
 		F55042182253C989005F7600 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55042172253C989005F7600 /* ReachabilityManager.swift */; };
 		F550421A22546FF5005F7600 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F550421922546FF5005F7600 /* Reachability.framework */; };
 		F5D26847224A060000239BA7 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D26846224A060000239BA7 /* Extension.swift */; };
+		F5EEFAA4225B1B58000D7C3E /* EvueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EEFAA3225B1B58000D7C3E /* EvueViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		F55042172253C989005F7600 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		F550421922546FF5005F7600 /* Reachability.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Reachability.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5D26846224A060000239BA7 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		F5EEFAA3225B1B58000D7C3E /* EvueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvueViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 			children = (
 				18031CD4222ACEF4008B359F /* AppDelegate.swift */,
 				18031CD6222ACEF4008B359F /* ViewController.swift */,
+				F5EEFAA3225B1B58000D7C3E /* EvueViewController.swift */,
 				F55042172253C989005F7600 /* ReachabilityManager.swift */,
 				F52E695F224C945000644BD0 /* WebViewController.swift */,
 				F5D26846224A060000239BA7 /* Extension.swift */,
@@ -228,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5D26847224A060000239BA7 /* Extension.swift in Sources */,
+				F5EEFAA4225B1B58000D7C3E /* EvueViewController.swift in Sources */,
 				18031CD7222ACEF4008B359F /* ViewController.swift in Sources */,
 				18031CD5222ACEF4008B359F /* AppDelegate.swift in Sources */,
 				F52E6960224C945000644BD0 /* WebViewController.swift in Sources */,
