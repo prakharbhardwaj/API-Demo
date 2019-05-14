@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 struct Session: Decodable {
     let apiKey: String
@@ -16,12 +17,19 @@ struct Session: Decodable {
 
 class EvueViewController: UIViewController {
     
+//    @IBOutlet weak var img : ImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-       generateSession()
+//       generateSession()
+//        img.sd_setImage(with: URL(string: "https://www.evueme.com/MVP-HTML/api/logo/br_naukri_logo.png") )
+//        self.view.addSubview(UIView().customActivityIndicator(view: self.view, widthView: nil, backgroundColor:#colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)))
+        
+        self.view.backgroundColor = UIColor(hexFromString: "\(bgColor)")
+        print(UIColor(hexFromString: "\(bgColor)"))
     }
     
     fileprivate func fetchCourseJSONwithResult(completion: @escaping (Result<Session, Error>) ->()){
+                self.view.addSubview(UIView().customActivityIndicator(view: self.view, widthView: nil, backgroundColor:#colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)))
         
         let urlString = "https://demo.evueme.com/applicant/androidSessionGenerate"
         guard let url = URL(string: urlString) else { return }
@@ -52,9 +60,16 @@ class EvueViewController: UIViewController {
         fetchCourseJSONwithResult { (res) in
             switch res {
             case .success(let jsonResult):
-                    print(jsonResult.apiKey)
-                    print(jsonResult.sessionId)
-                    print(jsonResult.token)
+//                    print(jsonResult.apiKey)
+//                    print(jsonResult.sessionId)
+//                    print(jsonResult.token)
+                    DispatchQueue.main.async { // Correct
+                        print(jsonResult.apiKey)
+                        print(jsonResult.sessionId)
+                        print(jsonResult.token)
+
+//                        self.view.subviews.last?.removeFromSuperview()
+                }
             case .failure(let err):
                 print("Failed to fetch courses", err)
             }
@@ -113,3 +128,25 @@ class EvueViewController: UIViewController {
 //print(person.firstName) // John
 //print(person.lastName) // Doe
 //print(person.job.title) // iOS Developer
+
+extension UIColor {
+    convenience init(hexFromString:String, alpha:CGFloat = 1.0) {
+        var cString:String = hexFromString.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        var rgbValue:UInt32 = 10066329 //color #999999 if string has wrong format
+        
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+        
+        if ((cString.count) == 6) {
+            Scanner(string: cString).scanHexInt32(&rgbValue)
+        }
+        
+        self.init(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: alpha
+        )
+    }
+}

@@ -13,6 +13,7 @@
 		18031CDA222ACEF4008B359F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18031CD8222ACEF4008B359F /* Main.storyboard */; };
 		18031CDC222ACEF4008B359F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18031CDB222ACEF4008B359F /* Assets.xcassets */; };
 		18031CDF222ACEF4008B359F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18031CDD222ACEF4008B359F /* LaunchScreen.storyboard */; };
+		F523A61F2285E5200091F14F /* ImageViewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F523A61E2285E5200091F14F /* ImageViewClass.swift */; };
 		F52E6960224C945000644BD0 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52E695F224C945000644BD0 /* WebViewController.swift */; };
 		F52E6963224C959100644BD0 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F52E6962224C959100644BD0 /* WebKit.framework */; };
 		F55042182253C989005F7600 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55042172253C989005F7600 /* ReachabilityManager.swift */; };
@@ -32,6 +33,7 @@
 		2618A3B40700CD30ACA3A3AB /* Pods-APIDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIDemo.debug.xcconfig"; path = "Target Support Files/Pods-APIDemo/Pods-APIDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		AC2696E1E427D7281FD12493 /* Pods_APIDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APIDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEDB2FC3A9BA6DF16D68BD44 /* Pods-APIDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIDemo.release.xcconfig"; path = "Target Support Files/Pods-APIDemo/Pods-APIDemo.release.xcconfig"; sourceTree = "<group>"; };
+		F523A61E2285E5200091F14F /* ImageViewClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewClass.swift; sourceTree = "<group>"; };
 		F52E695F224C945000644BD0 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		F52E6962224C959100644BD0 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		F55042172253C989005F7600 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
@@ -76,15 +78,16 @@
 			isa = PBXGroup;
 			children = (
 				18031CD4222ACEF4008B359F /* AppDelegate.swift */,
-				18031CD6222ACEF4008B359F /* ViewController.swift */,
-				F5EEFAA3225B1B58000D7C3E /* EvueViewController.swift */,
-				F55042172253C989005F7600 /* ReachabilityManager.swift */,
-				F52E695F224C945000644BD0 /* WebViewController.swift */,
-				F5D26846224A060000239BA7 /* Extension.swift */,
-				18031CD8222ACEF4008B359F /* Main.storyboard */,
 				18031CDB222ACEF4008B359F /* Assets.xcassets */,
-				18031CDD222ACEF4008B359F /* LaunchScreen.storyboard */,
+				F5EEFAA3225B1B58000D7C3E /* EvueViewController.swift */,
+				F5D26846224A060000239BA7 /* Extension.swift */,
 				18031CE0222ACEF4008B359F /* Info.plist */,
+				18031CDD222ACEF4008B359F /* LaunchScreen.storyboard */,
+				18031CD8222ACEF4008B359F /* Main.storyboard */,
+				F55042172253C989005F7600 /* ReachabilityManager.swift */,
+				18031CD6222ACEF4008B359F /* ViewController.swift */,
+				F52E695F224C945000644BD0 /* WebViewController.swift */,
+				F523A61E2285E5200091F14F /* ImageViewClass.swift */,
 			);
 			path = APIDemo;
 			sourceTree = "<group>";
@@ -211,12 +214,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-APIDemo/Pods-APIDemo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -234,6 +239,7 @@
 				F5EEFAA4225B1B58000D7C3E /* EvueViewController.swift in Sources */,
 				18031CD7222ACEF4008B359F /* ViewController.swift in Sources */,
 				18031CD5222ACEF4008B359F /* AppDelegate.swift in Sources */,
+				F523A61F2285E5200091F14F /* ImageViewClass.swift in Sources */,
 				F52E6960224C945000644BD0 /* WebViewController.swift in Sources */,
 				F55042182253C989005F7600 /* ReachabilityManager.swift in Sources */,
 			);

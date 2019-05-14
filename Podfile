@@ -6,5 +6,6 @@ target 'APIDemo' do
   use_frameworks!
   pod 'ReachabilitySwift'
   # Pods for APIDemo
-
+	#Pods for SDWebImage
+ 	 pod 'SDWebImage', '~> 5.0'
 end
