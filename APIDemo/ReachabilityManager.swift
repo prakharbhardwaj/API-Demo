@@ -9,7 +9,7 @@
 import UIKit
 import Reachability
 
-public protocol NetworkStatusListener : class {
+public protocol NetworkStatusListener: class {
     func networkStatusDidChange(status: Reachability.Connection)
 }
 
@@ -18,7 +18,7 @@ class ReachabilityManager: NSObject {
     static let shared = ReachabilityManager()  // 2. Shared instance
     
     // 3. Boolean to track network reachability
-    var isNetworkAvailable : Bool {
+    var isNetworkAvailable: Bool {
         return reachabilityStatus != .none
     }
     
@@ -29,9 +29,6 @@ class ReachabilityManager: NSObject {
     let reachability = Reachability()!
     
     var listeners = [NetworkStatusListener]()
-    
-    
-    
     
     /// Called whenever there is a change in NetworkReachibility Status
     ///
@@ -52,7 +49,6 @@ class ReachabilityManager: NSObject {
         }
     }
     
-    
     /// Starts monitoring the network availability status
     func startMonitoring() {
         
@@ -60,29 +56,28 @@ class ReachabilityManager: NSObject {
                                                selector: #selector(self.reachabilityChanged),
                                                name: Notification.Name.reachabilityChanged,
                                                object: reachability)
-        do{
+        do {
             try reachability.startNotifier()
-        }catch{
+        } catch {
             debugPrint("Could not start reachability notifier")
         }
     }
     
     /// Stops monitoring the network availability status
-    func stopMonitoring(){
+    func stopMonitoring() {
         reachability.stopNotifier()
         NotificationCenter.default.removeObserver(self, name: Notification.Name.reachabilityChanged,
                                                   object: reachability)
     }
     
-    func addListener(listener: NetworkStatusListener){
+    func addListener(listener: NetworkStatusListener) {
         listeners.append(listener)
     }
     
     /// Removes a listener from listeners array
     ///
     /// - parameter delegate: the listener which is to be removed
-    func removeListener(listener: NetworkStatusListener){
-        listeners = listeners.filter{ $0 !== listener}
+    func removeListener(listener: NetworkStatusListener) {
+        listeners = listeners.filter { $0 !== listener}
     }
 }
-

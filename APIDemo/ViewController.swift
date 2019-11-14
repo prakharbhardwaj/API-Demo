@@ -12,9 +12,9 @@ import CoreTelephony
 class ViewController: UIViewController {
     
     @IBOutlet weak var button: UIButton!
-    @IBOutlet weak var API:UITextField!
-    @IBOutlet weak var session:UITextField!
-    @IBOutlet weak var tokens:UITextField!
+    @IBOutlet weak var API: UITextField!
+    @IBOutlet weak var session: UITextField!
+    @IBOutlet weak var tokens: UITextField!
     
     var questionArray = [String]()
     var pollyArray = [String]()
@@ -46,7 +46,7 @@ class ViewController: UIViewController {
         let urlPath = URL(string: urlString)!
         let urlRequest = URLRequest(url: urlPath)
         
-        let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, _) in
             do {
                 if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? NSDictionary {
                     if let response = response {
@@ -63,8 +63,7 @@ class ViewController: UIViewController {
 //                        }
                     } 
                 }
-            }
-            catch let err as NSError {
+            } catch let err as NSError {
                 print(err.debugDescription)
             }
         }
@@ -72,19 +71,17 @@ class ViewController: UIViewController {
     }
     
     @IBAction func buttonAction(_ sender: UIButton) {
-        print("@@@",questionCount)
-        print("###",inti)
-        if (inti < questionCount) {
+        print("@@@", questionCount)
+        print("###", inti)
+        if inti < questionCount {
             DispatchQueue.main.async {
                 self.generateActualSession()
             }
-        }
-        else{
+        } else {
             button.isUserInteractionEnabled = false
             button.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         }
     }
-    
     
     // Post Method
 //        func callAPIPostMethod() {
@@ -166,14 +163,14 @@ class ViewController: UIViewController {
         
         let jobID = "OTM2"
         let feedBackData = ""
-        let parameters = ["feedback":"\(feedBackData)"]
+        let parameters = ["feedback": "\(feedBackData)"]
         
         guard let url = URL(string: "https://www.evueme.com/MVP-HTML/api/createCandidatefeedback.php?candidate_id=\(jobID)") else {return}
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("text/html", forHTTPHeaderField: "Content-Type")
-        guard let httpbody = try? JSONSerialization.data(withJSONObject: parameters, options:[]) else {return}
+        guard let httpbody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else {return}
         request.httpBody = httpbody
         
         let session = URLSession.shared
@@ -181,8 +178,8 @@ class ViewController: UIViewController {
             if let response = response {
                 print(response)
             }
-            if let data = data{
-                do{
+            if let data = data {
+                do {
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
                     print(json)
                 } catch {
@@ -197,7 +194,7 @@ class ViewController: UIViewController {
         let urlPath = URL(string: urlString)!
         let urlRequest = URLRequest(url: urlPath)
         
-        let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: urlRequest) { (data, _, _) in
             do {
                 if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? NSArray {
 //                    guard let dataArray = jsonResult[""] as? NSArray else {return}
@@ -227,8 +224,7 @@ class ViewController: UIViewController {
 //                        print("%%%",self.mainTime)
                     }
                 }
-            }
-            catch let err as NSError {
+            } catch let err as NSError {
                 print(err.debugDescription)
             }
         }
@@ -240,7 +236,7 @@ class ViewController: UIViewController {
         let urlPath = URL(string: urlString)!
         let urlRequest = URLRequest(url: urlPath)
         
-        let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: urlRequest) { (data, _, _) in
             do {
                 if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? NSDictionary {
                     guard let dataArray = jsonResult["ActualQuestions"] as? NSArray else {return}
@@ -262,8 +258,7 @@ class ViewController: UIViewController {
 //                        }
                     }
                 }
-            }
-            catch let err as NSError {
+            } catch let err as NSError {
                 print(err.debugDescription)
             }
         }
@@ -272,7 +267,7 @@ class ViewController: UIViewController {
 }
 extension String {
     func numberOfSeconds() -> Int {
-        var components: Array = self.components(separatedBy: ":")
+        let components: Array = self.components(separatedBy: ":")
 //        let hours = Int(components[0]) ?? 0
         let minutes = Int(components[0]) ?? 0
         let seconds = Int(components[1]) ?? 0
@@ -280,4 +275,3 @@ extension String {
         return (minutes * 60) + seconds
     }
 }
-

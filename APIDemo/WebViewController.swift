@@ -72,7 +72,7 @@ extension WebViewController: NetworkStatusListener {
         
         // Update login button Enable/Disable status
         //        loginButton.isEnabled = !(status == .notReachable)
-        if (status == .none) {
+        if status == .none {
             let alert = UIAlertController(title: "Oops!", message: "No Internet Connection", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "OK", style: .default)
             alert.addAction(alertAction)
@@ -84,9 +84,7 @@ extension WebViewController: NetworkStatusListener {
             if presentedViewController == nil {
                 self.present(alert, animated: true, completion: nil)
             }
-        }
-            
-        else {
+        } else {
             loadVideo()
         }
     }

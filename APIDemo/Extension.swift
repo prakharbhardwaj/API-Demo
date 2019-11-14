@@ -10,12 +10,12 @@ import UIKit
 import Foundation
 
 extension UIColor {
-    var hexString:String? {
+    var hexString: String? {
         if let components = self.cgColor.components {
-            let r = components[0]
-            let g = components[1]
-            let b = components[2]
-            return  String(format: "%02X%02X%02X", (Int)(r * 255), (Int)(g * 255), (Int)(b * 255))
+            let red = components[0]
+            let green = components[1]
+            let blue = components[2]
+            return  String(format: "%02X%02X%02X", (Int)(red * 255), (Int)(green * 255), (Int)(blue * 255))
         }
         return nil
     }
@@ -43,7 +43,7 @@ extension String {
                 return (nil, nil)
             }
             
-            var dict:NSDictionary?
+            var dict: NSDictionary?
             dict = NSMutableDictionary()
             
             return try (NSAttributedString(data: data,
@@ -106,8 +106,8 @@ extension String {
     
 }
 
-extension UIView{
-    func customActivityIndicator(view: UIView, widthView: CGFloat?,backgroundColor: UIColor?) -> UIView{
+extension UIView {
+    func customActivityIndicator(view: UIView, widthView: CGFloat?, backgroundColor: UIColor?) -> UIView {
         
         //Config UIView
 //        self.backgroundColor = .clear //Background color of your view which you want to set
@@ -120,13 +120,13 @@ extension UIView{
        self.layer.masksToBounds = false
         
         var selfWidth = view.frame.width
-        if widthView != nil{
+        if widthView != nil {
             selfWidth = widthView ?? selfWidth
         }
         
         let selfHeigh = view.frame.height
         let loopImages = UIImageView()
-        let imageListArray = [#imageLiteral(resourceName: "Image-1") , #imageLiteral(resourceName: "Image"), #imageLiteral(resourceName: "EmptyStar")] // Put your desired array of images in a specific order the way you want to display animation.
+        let imageListArray = [#imageLiteral(resourceName: "Image-1"), #imageLiteral(resourceName: "Image"), #imageLiteral(resourceName: "EmptyStar")] // Put your desired array of images in a specific order the way you want to display animation.
         
         loopImages.animationImages = imageListArray
         loopImages.animationDuration = TimeInterval(0.8)
@@ -137,7 +137,7 @@ extension UIView{
         var imageWidth = CGFloat(80)
         var imageHeight = CGFloat(80)
         
-        if widthView != nil{
+        if widthView != nil {
             imageWidth = widthView ?? imageWidth
             imageHeight = widthView ?? imageHeight
         }
@@ -158,8 +158,7 @@ extension UIView{
 //        let labelHeight = CGFloat(70)
         
         // Define UIView frame
-        self.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width , height: UIScreen.main.bounds.size.height)
-        
+        self.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
         
         //ImageFrame
         loopImages.frame = CGRect(x: imageFrameX, y: imageFrameY, width: imageWidth, height: imageHeight)
@@ -173,4 +172,3 @@ extension UIView{
         return self
     }
 }
-

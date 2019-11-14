@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0Xo-wi-rq2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aPP-SD-g3V">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,6 +10,83 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Player View Controller-->
+        <scene sceneID="fq1-Ab-euD">
+            <objects>
+                <viewController id="aPP-SD-g3V" customClass="PlayerViewController" customModule="APIDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zJX-94-o0M">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JeZ-kj-DGd">
+                                <rect key="frame" x="42" y="262" width="291" height="143"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="143" id="ooQ-wY-Ngk"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.28235294119999998" green="0.08235294118" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="JeZ-kj-DGd" firstAttribute="top" secondItem="OEy-62-kxM" secondAttribute="top" constant="242" id="54L-pT-Jgn"/>
+                            <constraint firstItem="JeZ-kj-DGd" firstAttribute="centerY" secondItem="zJX-94-o0M" secondAttribute="centerY" id="S1g-7Y-bEp"/>
+                            <constraint firstItem="JeZ-kj-DGd" firstAttribute="centerX" secondItem="zJX-94-o0M" secondAttribute="centerX" id="YUa-7N-nXA"/>
+                            <constraint firstItem="OEy-62-kxM" firstAttribute="trailing" secondItem="JeZ-kj-DGd" secondAttribute="trailing" constant="42" id="q5V-pA-NAh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OEy-62-kxM"/>
+                    </view>
+                    <connections>
+                        <outlet property="playerView" destination="JeZ-kj-DGd" id="sp3-Rh-YLg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wjH-ll-nzU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2164" y="41"/>
+        </scene>
+        <!--Speech View Controller-->
+        <scene sceneID="AxV-JZ-eCA">
+            <objects>
+                <viewController id="a7t-MV-mHm" customClass="SpeechViewController" customModule="APIDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vUT-qS-YIl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fe4-Ta-Xsn">
+                                <rect key="frame" x="133" y="71" width="109" height="30"/>
+                                <state key="normal" title="Start Recording">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnStartSpeechToText:" destination="a7t-MV-mHm" eventType="touchUpInside" id="AlB-c4-tZk"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="yeT-xN-g7E">
+                                <rect key="frame" x="16" y="109" width="343" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.28235294119999998" green="0.08235294118" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="yeT-xN-g7E" firstAttribute="leading" secondItem="Cgw-UV-lRU" secondAttribute="leading" constant="16" id="8Wq-RN-ct1"/>
+                            <constraint firstItem="Fe4-Ta-Xsn" firstAttribute="centerX" secondItem="vUT-qS-YIl" secondAttribute="centerX" id="L7K-es-2gQ"/>
+                            <constraint firstItem="Fe4-Ta-Xsn" firstAttribute="top" secondItem="Cgw-UV-lRU" secondAttribute="top" constant="51" id="SEI-a1-OTb"/>
+                            <constraint firstItem="yeT-xN-g7E" firstAttribute="top" secondItem="Fe4-Ta-Xsn" secondAttribute="bottom" constant="8" id="UzB-cP-aVZ"/>
+                            <constraint firstItem="yeT-xN-g7E" firstAttribute="centerX" secondItem="vUT-qS-YIl" secondAttribute="centerX" id="qp9-XM-nHS"/>
+                            <constraint firstItem="Fe4-Ta-Xsn" firstAttribute="leading" secondItem="Cgw-UV-lRU" secondAttribute="leading" constant="133" id="u5M-XY-OJj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Cgw-UV-lRU"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnStart" destination="Fe4-Ta-Xsn" id="PLW-Qc-tHR"/>
+                        <outlet property="lblText" destination="yeT-xN-g7E" id="qf9-Rq-a0e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8KT-ZE-Kz2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1375.2" y="44.527736131934034"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>

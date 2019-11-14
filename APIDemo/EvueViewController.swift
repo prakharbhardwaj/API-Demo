@@ -28,8 +28,8 @@ class EvueViewController: UIViewController {
         print(UIColor(hexFromString: "\(bgColor)"))
     }
     
-    fileprivate func fetchCourseJSONwithResult(completion: @escaping (Result<Session, Error>) ->()){
-                self.view.addSubview(UIView().customActivityIndicator(view: self.view, widthView: nil, backgroundColor:#colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)))
+    fileprivate func fetchCourseJSONwithResult(completion: @escaping (Result<Session, Error>) -> Void) {
+                self.view.addSubview(UIView().customActivityIndicator(view: self.view, widthView: nil, backgroundColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)))
         
         let urlString = "https://demo.evueme.com/applicant/androidSessionGenerate"
         guard let url = URL(string: urlString) else { return }
@@ -38,7 +38,7 @@ class EvueViewController: UIViewController {
         
         urlRequest.setValue("iOS", forHTTPHeaderField: "deviceType")
         
-        URLSession.shared.dataTask(with: urlRequest) { (data, resp, err) in
+        URLSession.shared.dataTask(with: urlRequest) { (data, _, err) in
             
             if let err = err {
                 completion(.failure(err))
@@ -75,7 +75,6 @@ class EvueViewController: UIViewController {
             }
         }
     }
-    
     
 }
 
@@ -130,15 +129,15 @@ class EvueViewController: UIViewController {
 //print(person.job.title) // iOS Developer
 
 extension UIColor {
-    convenience init(hexFromString:String, alpha:CGFloat = 1.0) {
-        var cString:String = hexFromString.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-        var rgbValue:UInt32 = 10066329 //color #999999 if string has wrong format
+    convenience init(hexFromString: String, alpha: CGFloat = 1.0) {
+        var cString: String = hexFromString.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        var rgbValue: UInt32 = 10066329 //color #999999 if string has wrong format
         
-        if (cString.hasPrefix("#")) {
+        if cString.hasPrefix("#") {
             cString.remove(at: cString.startIndex)
         }
         
-        if ((cString.count) == 6) {
+        if (cString.count) == 6 {
             Scanner(string: cString).scanHexInt32(&rgbValue)
         }
         

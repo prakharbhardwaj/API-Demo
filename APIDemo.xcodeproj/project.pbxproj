@@ -18,7 +18,9 @@
 		F52E6963224C959100644BD0 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F52E6962224C959100644BD0 /* WebKit.framework */; };
 		F55042182253C989005F7600 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55042172253C989005F7600 /* ReachabilityManager.swift */; };
 		F550421A22546FF5005F7600 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F550421922546FF5005F7600 /* Reachability.framework */; };
+		F57E4FC9228C1FFE003C2316 /* SpeechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57E4FC8228C1FFE003C2316 /* SpeechViewController.swift */; };
 		F5D26847224A060000239BA7 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D26846224A060000239BA7 /* Extension.swift */; };
+		F5E5D00A228D98F700257D6A /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E5D009228D98F700257D6A /* PlayerViewController.swift */; };
 		F5EEFAA4225B1B58000D7C3E /* EvueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EEFAA3225B1B58000D7C3E /* EvueViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +40,9 @@
 		F52E6962224C959100644BD0 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		F55042172253C989005F7600 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		F550421922546FF5005F7600 /* Reachability.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Reachability.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F57E4FC8228C1FFE003C2316 /* SpeechViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechViewController.swift; sourceTree = "<group>"; };
 		F5D26846224A060000239BA7 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		F5E5D009228D98F700257D6A /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		F5EEFAA3225B1B58000D7C3E /* EvueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvueViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,7 +91,9 @@
 				F55042172253C989005F7600 /* ReachabilityManager.swift */,
 				18031CD6222ACEF4008B359F /* ViewController.swift */,
 				F52E695F224C945000644BD0 /* WebViewController.swift */,
+				F5E5D009228D98F700257D6A /* PlayerViewController.swift */,
 				F523A61E2285E5200091F14F /* ImageViewClass.swift */,
+				F57E4FC8228C1FFE003C2316 /* SpeechViewController.swift */,
 			);
 			path = APIDemo;
 			sourceTree = "<group>";
@@ -123,6 +129,7 @@
 				18031CCE222ACEF4008B359F /* Frameworks */,
 				18031CCF222ACEF4008B359F /* Resources */,
 				58BCB89ECF355FCE3855D588 /* [CP] Embed Pods Frameworks */,
+				F5EE04BA237DD61400CF73F2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -228,6 +235,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-APIDemo/Pods-APIDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F5EE04BA237DD61400CF73F2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -239,6 +263,8 @@
 				F5EEFAA4225B1B58000D7C3E /* EvueViewController.swift in Sources */,
 				18031CD7222ACEF4008B359F /* ViewController.swift in Sources */,
 				18031CD5222ACEF4008B359F /* AppDelegate.swift in Sources */,
+				F57E4FC9228C1FFE003C2316 /* SpeechViewController.swift in Sources */,
+				F5E5D00A228D98F700257D6A /* PlayerViewController.swift in Sources */,
 				F523A61F2285E5200091F14F /* ImageViewClass.swift in Sources */,
 				F52E6960224C945000644BD0 /* WebViewController.swift in Sources */,
 				F55042182253C989005F7600 /* ReachabilityManager.swift in Sources */,

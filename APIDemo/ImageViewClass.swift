@@ -13,7 +13,6 @@ import SDWebImage
 var bgColor = ""
 
 public class ImageView: UIImageView {
-    
     @IBOutlet weak var textsfield: UITextField!
     var imageUrl = ""
     
@@ -27,13 +26,13 @@ public class ImageView: UIImageView {
         }
     }
 
-    func text2Image(){
+    func text2Image() {
 
             let urlString = "https://www.evueme.com/MVP-HTML/api/branding"
             let urlPath = URL(string: urlString)!
             let urlRequest = URLRequest(url: urlPath)
             
-            let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, _) in
                 do {
                     if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? NSDictionary {
                         if let response = response {
@@ -56,12 +55,10 @@ public class ImageView: UIImageView {
                         }
                         }
                     }
-                }
-                catch let err as NSError {
+                } catch let err as NSError {
                     print(err.debugDescription)
                 }
             }
             task.resume()
     }
 }
-
